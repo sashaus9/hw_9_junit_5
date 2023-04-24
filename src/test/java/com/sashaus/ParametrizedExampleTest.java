@@ -30,8 +30,7 @@ public class ParametrizedExampleTest {
     })
     @ParameterizedTest(name = "Пример с '@ValueSource'. Проверка названий кнопок на сайте qa.guru {0}")
     void checkButtonNamesOnQaGuruWebsiteTest(String buttonName) {
-        $$("#menu a").find(text(buttonName)).click();
-        $$(".main-menu-pages a").filter(visible).shouldHave(texts(buttonName));
+        $$("li a").find(text(buttonName)).shouldBe(visible);
     }
 
     @CsvSource(value = {
